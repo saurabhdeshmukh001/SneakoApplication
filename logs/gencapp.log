@@ -3443,3 +3443,728 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or upda
 2025-10-22T14:17:04.855+05:30 DEBUG 13356 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : select ci1_0.cart_item_id,ci1_0.total_price,ci1_0.cart_id,ci1_0.created_at,ci1_0.product_id,ci1_0.quantity,ci1_0.unit_price,ci1_0.updated_at from cart_item ci1_0 where ci1_0.cart_item_id=? and ci1_0.product_id=?
 2025-10-22T14:17:04.937+05:30 DEBUG 13356 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : update cart_item set total_price=?,cart_id=?,created_at=?,product_id=?,quantity=?,unit_price=?,updated_at=? where cart_item_id=?
 2025-10-22T15:22:06.117+05:30  WARN 13356 --- [SneakoAplication] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h5m11s318ms554µs800ns).
+2025-10-22T15:34:23.733+05:30  INFO 7076 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 7076 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T15:34:23.736+05:30  INFO 7076 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T15:34:25.200+05:30  INFO 7076 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T15:34:25.336+05:30  INFO 7076 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 6 JPA repository interfaces.
+2025-10-22T15:34:26.051+05:30  INFO 7076 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T15:34:26.070+05:30  INFO 7076 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T15:34:26.070+05:30  INFO 7076 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T15:34:26.148+05:30  INFO 7076 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T15:34:26.149+05:30  INFO 7076 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2333 ms
+2025-10-22T15:34:26.446+05:30  INFO 7076 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:34:28.054+05:30  INFO 7076 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T15:34:28.119+05:30  INFO 7076 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T15:34:28.153+05:30  INFO 7076 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T15:34:28.483+05:30  INFO 7076 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T15:34:28.508+05:30  INFO 7076 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:34:29.517+05:30  WARN 7076 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1045, SQLState: 28000
+2025-10-22T15:34:29.518+05:30 ERROR 7076 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Access denied for user 'root'@'localhost' (using password: YES)
+2025-10-22T15:34:29.518+05:30  WARN 7076 --- [SneakoAplication] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+org.hibernate.exception.GenericJDBCException: unable to obtain isolated JDBC connection [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:334) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.genc.app.SneakoAplication.SneakoAplication.main(SneakoAplication.java:10) ~[classes/:na]
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:839) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:415) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	... 35 common frames omitted
+
+2025-10-22T15:34:29.541+05:30  WARN 7076 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T15:34:29.552+05:30  INFO 7076 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T15:34:30.452+05:30  INFO 7076 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T15:34:30.469+05:30  INFO 7076 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:34:31.484+05:30  WARN 7076 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1045, SQLState: 28000
+2025-10-22T15:34:31.484+05:30 ERROR 7076 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Access denied for user 'root'@'localhost' (using password: YES)
+2025-10-22T15:34:31.488+05:30 ERROR 7076 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2025-10-22T15:34:31.489+05:30  WARN 7076 --- [SneakoAplication] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2025-10-22T15:34:31.491+05:30  INFO 7076 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-22T15:34:31.501+05:30  INFO 7076 --- [SneakoAplication] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-22T15:34:31.517+05:30 ERROR 7076 --- [SneakoAplication] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.genc.app.SneakoAplication.SneakoAplication.main(SneakoAplication.java:10) ~[classes/:na]
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 15 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.11.jar:6.2.11]
+	... 19 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:839) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:415) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	... 40 common frames omitted
+
+2025-10-22T15:35:16.387+05:30  INFO 20900 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 20900 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T15:35:16.391+05:30  INFO 20900 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T15:35:17.661+05:30  INFO 20900 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T15:35:17.747+05:30  INFO 20900 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 6 JPA repository interfaces.
+2025-10-22T15:35:18.311+05:30  INFO 20900 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T15:35:18.321+05:30  INFO 20900 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T15:35:18.322+05:30  INFO 20900 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T15:35:18.378+05:30  INFO 20900 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T15:35:18.378+05:30  INFO 20900 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1909 ms
+2025-10-22T15:35:18.628+05:30  INFO 20900 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:35:20.217+05:30  INFO 20900 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T15:35:20.262+05:30  INFO 20900 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T15:35:20.291+05:30  INFO 20900 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T15:35:20.595+05:30  INFO 20900 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T15:35:20.613+05:30  INFO 20900 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:35:21.631+05:30  WARN 20900 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1045, SQLState: 28000
+2025-10-22T15:35:21.631+05:30 ERROR 20900 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Access denied for user 'root'@'localhost' (using password: YES)
+2025-10-22T15:35:21.632+05:30  WARN 20900 --- [SneakoAplication] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+org.hibernate.exception.GenericJDBCException: unable to obtain isolated JDBC connection [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:334) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.genc.app.SneakoAplication.SneakoAplication.main(SneakoAplication.java:10) ~[classes/:na]
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:839) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:415) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	... 35 common frames omitted
+
+2025-10-22T15:35:21.646+05:30  WARN 20900 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T15:35:21.653+05:30  INFO 20900 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T15:35:22.390+05:30  INFO 20900 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T15:35:22.405+05:30  INFO 20900 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:35:23.418+05:30  WARN 20900 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1045, SQLState: 28000
+2025-10-22T15:35:23.419+05:30 ERROR 20900 --- [SneakoAplication] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Access denied for user 'root'@'localhost' (using password: YES)
+2025-10-22T15:35:23.426+05:30 ERROR 20900 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2025-10-22T15:35:23.427+05:30  WARN 20900 --- [SneakoAplication] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2025-10-22T15:35:23.430+05:30  INFO 20900 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-22T15:35:23.444+05:30  INFO 20900 --- [SneakoAplication] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-22T15:35:23.459+05:30 ERROR 20900 --- [SneakoAplication] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.genc.app.SneakoAplication.SneakoAplication.main(SneakoAplication.java:10) ~[classes/:na]
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 15 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.11.jar:6.2.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.11.jar:6.2.11]
+	... 19 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:839) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:415) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180) ~[mysql-connector-j-9.4.0.jar:9.4.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.6.29.Final.jar:6.6.29.Final]
+	... 40 common frames omitted
+
+2025-10-22T15:36:08.687+05:30  INFO 23656 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 23656 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T15:36:08.689+05:30  INFO 23656 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T15:36:09.967+05:30  INFO 23656 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T15:36:10.062+05:30  INFO 23656 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 6 JPA repository interfaces.
+2025-10-22T15:36:10.645+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T15:36:10.661+05:30  INFO 23656 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T15:36:10.661+05:30  INFO 23656 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T15:36:10.740+05:30  INFO 23656 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T15:36:10.740+05:30  INFO 23656 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1979 ms
+2025-10-22T15:36:11.010+05:30  INFO 23656 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T15:36:11.553+05:30  INFO 23656 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2fbd390
+2025-10-22T15:36:11.553+05:30  INFO 23656 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-22T15:36:11.591+05:30  INFO 23656 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T15:36:11.653+05:30  INFO 23656 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T15:36:11.694+05:30  INFO 23656 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T15:36:12.053+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T15:36:12.117+05:30  WARN 23656 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T15:36:12.130+05:30  INFO 23656 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T15:36:12.895+05:30  INFO 23656 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T15:36:12.942+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table cart (id bigint not null auto_increment, total_item integer, total_price float(53), user_id bigint not null, primary key (id)) engine=InnoDB
+2025-10-22T15:36:12.959+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table cart_item (cart_item_id bigint not null auto_increment, total_price bigint, created_at datetime(6), product_id bigint, quantity bigint, unit_price bigint, updated_at datetime(6), cart_id bigint not null, primary key (cart_item_id)) engine=InnoDB
+2025-10-22T15:36:12.989+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table category (categoryid bigint not null auto_increment, created_at datetime(6), created_by varchar(255), name varchar(255), updated_at datetime(6), updated_by varchar(255), version bigint, primary key (categoryid)) engine=InnoDB
+2025-10-22T15:36:13.005+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table product (productid bigint not null auto_increment, created_at datetime(6), created_by varchar(255), description varchar(255), image_url varchar(255), price decimal(38,2), product_name varchar(255), stock_quantity bigint, updated_at datetime(6), updated_by varchar(255), version bigint, categoryid bigint, primary key (productid)) engine=InnoDB
+2025-10-22T15:36:13.026+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table roles (role_id bigint not null auto_increment, created_at datetime(6), name varchar(255), updated_at datetime(6), version bigint, primary key (role_id)) engine=InnoDB
+2025-10-22T15:36:13.042+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table users (userid bigint not null auto_increment, address varchar(255), created_at datetime(6), email varchar(255), password varchar(255), phone_number bigint, updated_at datetime(6), user_name varchar(255), version bigint, primary key (userid)) engine=InnoDB
+2025-10-22T15:36:13.057+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table users_roles (users_userid bigint not null, roles_role_id bigint not null) engine=InnoDB
+2025-10-22T15:36:13.085+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart drop index UK9emlp6m95v5er2bcqkjsw48he
+2025-10-22T15:36:13.089+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart add constraint UK9emlp6m95v5er2bcqkjsw48he unique (user_id)
+2025-10-22T15:36:13.101+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart add constraint FKg5uhi8vpsuy0lgloxk2h4w5o6 foreign key (user_id) references users (userid)
+2025-10-22T15:36:13.185+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart_item add constraint FK1uobyhgl1wvgt1jpccia8xxs3 foreign key (cart_id) references cart (id)
+2025-10-22T15:36:13.258+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table product add constraint FK4ort9abhumpx4t2mlngljr1vi foreign key (categoryid) references category (categoryid)
+2025-10-22T15:36:13.356+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users_roles add constraint FKtgou1kvdhyryu3fia6uu1fhoi foreign key (roles_role_id) references roles (role_id)
+2025-10-22T15:36:13.431+05:30 DEBUG 23656 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users_roles add constraint FKnqgxij5udu4xrsqju9dtbc8pr foreign key (users_userid) references users (userid)
+2025-10-22T15:36:13.510+05:30  INFO 23656 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T15:36:14.103+05:30  WARN 23656 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-22T15:36:14.850+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-22T15:36:14.935+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-22T15:36:14.943+05:30  INFO 23656 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T15:36:14.943+05:30  INFO 23656 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T15:36:14.967+05:30  INFO 23656 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-22T15:36:14.967+05:30  INFO 23656 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 113 ms
+2025-10-22T15:36:14.985+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-22T15:36:15.059+05:30  INFO 23656 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-22T15:36:15.066+05:30  INFO 23656 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 6.984 seconds (process running for 7.458)
+2025-10-22T15:42:27.340+05:30  INFO 23656 --- [SneakoAplication] [http-nio-8085-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-22T15:42:27.340+05:30  INFO 23656 --- [SneakoAplication] [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-22T15:42:27.342+05:30  INFO 23656 --- [SneakoAplication] [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-22T15:42:28.366+05:30  INFO 23656 --- [SneakoAplication] [http-nio-8085-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 686 ms
+2025-10-22T16:40:58.612+05:30  INFO 23656 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T16:40:58.625+05:30  INFO 23656 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T16:40:58.626+05:30  INFO 23656 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T16:40:58.633+05:30  INFO 23656 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T16:40:58.663+05:30  INFO 23656 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T16:40:58.670+05:30  INFO 23656 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-22T16:40:58.674+05:30  INFO 23656 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-22T16:44:40.998+05:30  INFO 3672 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 3672 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T16:44:41.001+05:30  INFO 3672 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T16:44:42.440+05:30  INFO 3672 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T16:44:42.553+05:30  INFO 3672 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 6 JPA repository interfaces.
+2025-10-22T16:44:43.402+05:30  INFO 3672 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T16:44:43.426+05:30  INFO 3672 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T16:44:43.427+05:30  INFO 3672 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T16:44:43.537+05:30  INFO 3672 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T16:44:43.538+05:30  INFO 3672 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2473 ms
+2025-10-22T16:44:43.681+05:30 ERROR 3672 --- [SneakoAplication] [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig' defined in file [C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes\org\genc\app\SneakoAplication\security\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtUtil' defined in file [C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes\org\genc\app\SneakoAplication\security\JwtUtil.class]: Failed to instantiate [org.genc.app.SneakoAplication.security.JwtUtil]: Constructor threw exception
+2025-10-22T16:44:43.711+05:30  INFO 3672 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-22T16:44:43.726+05:30  WARN 3672 --- [SneakoAplication] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2025-10-22T16:44:43.741+05:30  INFO 3672 --- [SneakoAplication] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-22T16:44:43.771+05:30 ERROR 3672 --- [SneakoAplication] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:170) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.genc.app.SneakoAplication.SneakoAplication.main(SneakoAplication.java:10) ~[classes/:na]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:147) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167) ~[spring-boot-3.5.6.jar:3.5.6]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig' defined in file [C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes\org\genc\app\SneakoAplication\security\SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtUtil' defined in file [C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes\org\genc\app\SneakoAplication\security\JwtUtil.class]: Failed to instantiate [org.genc.app.SneakoAplication.security.JwtUtil]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.5.6.jar:3.5.6]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:773) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438) ~[tomcat-embed-core-10.1.46.jar:10.1.46]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128) ~[spring-boot-3.5.6.jar:3.5.6]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtUtil' defined in file [C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes\org\genc\app\SneakoAplication\security\JwtUtil.class]: Failed to instantiate [org.genc.app.SneakoAplication.security.JwtUtil]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1698) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 63 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.genc.app.SneakoAplication.security.JwtUtil]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.2.11.jar:6.2.11]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 76 common frames omitted
+Caused by: io.jsonwebtoken.security.WeakKeyException: The specified key byte array is 240 bits which is not secure enough for any JWT HMAC-SHA algorithm.  The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HMAC-SHA algorithms MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys#secretKeyFor(SignatureAlgorithm) method to create a key guaranteed to be secure enough for your preferred HMAC-SHA algorithm.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+	at io.jsonwebtoken.security.Keys.hmacShaKeyFor(Keys.java:96) ~[jjwt-api-0.11.5.jar:0.11.5]
+	at org.genc.app.SneakoAplication.security.JwtUtil.<init>(JwtUtil.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:210) ~[spring-beans-6.2.11.jar:6.2.11]
+	... 78 common frames omitted
+
+2025-10-22T17:02:47.764+05:30  INFO 26604 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 26604 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T17:02:47.773+05:30  INFO 26604 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T17:02:49.545+05:30  INFO 26604 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T17:02:49.709+05:30  INFO 26604 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 6 JPA repository interfaces.
+2025-10-22T17:02:50.605+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T17:02:50.627+05:30  INFO 26604 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:02:50.627+05:30  INFO 26604 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:02:50.753+05:30  INFO 26604 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:02:50.754+05:30  INFO 26604 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2904 ms
+2025-10-22T17:02:51.043+05:30  INFO 26604 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T17:02:51.273+05:30  INFO 26604 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@108b121f
+2025-10-22T17:02:51.275+05:30  INFO 26604 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-22T17:02:51.335+05:30  INFO 26604 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T17:02:51.431+05:30  INFO 26604 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T17:02:51.522+05:30  INFO 26604 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T17:02:52.011+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T17:02:52.106+05:30  WARN 26604 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T17:02:52.123+05:30  INFO 26604 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T17:02:53.093+05:30  INFO 26604 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T17:02:53.146+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table user_roles (user_id bigint not null, role_id bigint not null) engine=InnoDB
+2025-10-22T17:02:53.179+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : create index idx_users_username on users (user_name)
+2025-10-22T17:02:53.203+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : create index idx_users_email on users (email)
+2025-10-22T17:02:53.262+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (role_id)
+2025-10-22T17:02:53.341+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (userid)
+2025-10-22T17:02:53.436+05:30  INFO 26604 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T17:02:54.211+05:30  WARN 26604 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-22T17:02:54.245+05:30  INFO 26604 --- [SneakoAplication] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-10-22T17:02:54.245+05:30  WARN 26604 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-22T17:02:55.284+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/sneako?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false'
+2025-10-22T17:02:55.432+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-22T17:02:55.524+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-22T17:02:55.526+05:30  INFO 26604 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:02:55.526+05:30  INFO 26604 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:02:55.561+05:30  INFO 26604 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:02:55.561+05:30  INFO 26604 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 124 ms
+2025-10-22T17:02:55.588+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-22T17:02:55.640+05:30  INFO 26604 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-22T17:02:55.654+05:30  INFO 26604 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 8.55 seconds (process running for 9.059)
+2025-10-22T17:02:55.949+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:02:56.009+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into roles (created_at,name,updated_at,version) values (?,?,?,?)
+2025-10-22T17:02:56.039+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:02:56.042+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into roles (created_at,name,updated_at,version) values (?,?,?,?)
+2025-10-22T17:02:56.051+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:02:56.116+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into users (address,created_at,email,password,phone_number,updated_at,user_name,version) values (?,?,?,?,?,?,?,?)
+2025-10-22T17:02:56.124+05:30 DEBUG 26604 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into user_roles (user_id,role_id) values (?,?)
+2025-10-22T17:03:06.465+05:30  INFO 26604 --- [SneakoAplication] [http-nio-8085-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-22T17:03:06.465+05:30  INFO 26604 --- [SneakoAplication] [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-22T17:03:06.466+05:30  INFO 26604 --- [SneakoAplication] [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-22T17:05:59.498+05:30  INFO 26604 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T17:05:59.506+05:30  INFO 26604 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T17:05:59.507+05:30  INFO 26604 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T17:05:59.512+05:30  INFO 26604 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T17:05:59.529+05:30  INFO 26604 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T17:05:59.534+05:30  INFO 26604 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-22T17:05:59.563+05:30  INFO 26604 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-22T17:06:03.296+05:30  INFO 19216 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 19216 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T17:06:03.300+05:30  INFO 19216 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T17:06:04.852+05:30  INFO 19216 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T17:06:04.965+05:30  INFO 19216 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 6 JPA repository interfaces.
+2025-10-22T17:06:05.754+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T17:06:05.780+05:30  INFO 19216 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:06:05.781+05:30  INFO 19216 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:06:05.889+05:30  INFO 19216 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:06:05.890+05:30  INFO 19216 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2519 ms
+2025-10-22T17:06:06.161+05:30  INFO 19216 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T17:06:06.381+05:30  INFO 19216 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37a67cf
+2025-10-22T17:06:06.383+05:30  INFO 19216 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-22T17:06:06.423+05:30  INFO 19216 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T17:06:06.483+05:30  INFO 19216 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T17:06:06.545+05:30  INFO 19216 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T17:06:06.904+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T17:06:06.963+05:30  WARN 19216 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T17:06:06.976+05:30  INFO 19216 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T17:06:07.808+05:30  INFO 19216 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T17:06:07.896+05:30  INFO 19216 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T17:06:08.645+05:30  WARN 19216 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-22T17:06:08.682+05:30  INFO 19216 --- [SneakoAplication] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-10-22T17:06:08.683+05:30  WARN 19216 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-22T17:06:09.744+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/sneako?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false'
+2025-10-22T17:06:09.903+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-22T17:06:10.001+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-22T17:06:10.002+05:30  INFO 19216 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:06:10.002+05:30  INFO 19216 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:06:10.031+05:30  INFO 19216 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:06:10.031+05:30  INFO 19216 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 124 ms
+2025-10-22T17:06:10.048+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-22T17:06:10.095+05:30  INFO 19216 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-22T17:06:10.107+05:30  INFO 19216 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 7.404 seconds (process running for 7.817)
+2025-10-22T17:06:10.330+05:30 DEBUG 19216 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:06:10.356+05:30 DEBUG 19216 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:06:10.359+05:30 DEBUG 19216 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:06:10.364+05:30 DEBUG 19216 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.role_id,r1_1.created_at,r1_1.name,r1_1.updated_at,r1_1.version from user_roles r1_0 join roles r1_1 on r1_1.role_id=r1_0.role_id where r1_0.user_id=?
+2025-10-22T17:06:19.736+05:30  INFO 19216 --- [SneakoAplication] [http-nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-22T17:06:19.737+05:30  INFO 19216 --- [SneakoAplication] [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-22T17:06:19.740+05:30  INFO 19216 --- [SneakoAplication] [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-10-22T17:06:20.747+05:30  INFO 19216 --- [SneakoAplication] [http-nio-8085-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 676 ms
+2025-10-22T17:07:13.391+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-4] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:08:12.058+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : select u1_0.userid from users u1_0 where u1_0.user_name=? limit ?
+2025-10-22T17:08:12.059+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : select u1_0.userid from users u1_0 where u1_0.email=? limit ?
+2025-10-22T17:08:12.076+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:08:12.175+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : insert into roles (created_at,name,updated_at,version) values (?,?,?,?)
+2025-10-22T17:08:12.309+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : insert into users (address,created_at,email,password,phone_number,updated_at,user_name,version) values (?,?,?,?,?,?,?,?)
+2025-10-22T17:08:12.342+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-7] org.hibernate.SQL                        : insert into user_roles (user_id,role_id) values (?,?)
+2025-10-22T17:08:27.818+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-9] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:08:27.826+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-9] org.hibernate.SQL                        : select r1_0.user_id,r1_1.role_id,r1_1.created_at,r1_1.name,r1_1.updated_at,r1_1.version from user_roles r1_0 join roles r1_1 on r1_1.role_id=r1_0.role_id where r1_0.user_id=?
+2025-10-22T17:08:27.925+05:30 DEBUG 19216 --- [SneakoAplication] [http-nio-8085-exec-9] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:13:33.802+05:30  INFO 19216 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T17:13:33.807+05:30  INFO 19216 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T17:13:33.808+05:30  INFO 19216 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-22T17:13:33.812+05:30  INFO 19216 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-22T17:13:33.821+05:30  INFO 19216 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T17:13:33.822+05:30  INFO 19216 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-22T17:13:33.827+05:30  INFO 19216 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-22T17:13:35.947+05:30  INFO 9452 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 9452 (C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend\target\classes started by 2440900 in C:\Users\2440900\OneDrive - Cognizant\Desktop\Backend\SneakoBackend)
+2025-10-22T17:13:35.950+05:30  INFO 9452 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-22T17:13:37.524+05:30  INFO 9452 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-22T17:13:37.674+05:30  INFO 9452 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 133 ms. Found 6 JPA repository interfaces.
+2025-10-22T17:13:38.495+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-22T17:13:38.510+05:30  INFO 9452 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:13:38.511+05:30  INFO 9452 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:13:38.591+05:30  INFO 9452 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:13:38.591+05:30  INFO 9452 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2574 ms
+2025-10-22T17:13:38.829+05:30  INFO 9452 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-22T17:13:39.374+05:30  INFO 9452 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f867b0c
+2025-10-22T17:13:39.375+05:30  INFO 9452 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-22T17:13:39.403+05:30  INFO 9452 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-22T17:13:39.454+05:30  INFO 9452 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-22T17:13:39.495+05:30  INFO 9452 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-22T17:13:39.762+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-22T17:13:39.812+05:30  WARN 9452 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-22T17:13:39.823+05:30  INFO 9452 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-22T17:13:40.570+05:30  INFO 9452 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-22T17:13:40.603+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table cart (id bigint not null auto_increment, total_item integer, total_price float(53), user_id bigint not null, primary key (id)) engine=InnoDB
+2025-10-22T17:13:40.622+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table cart_item (cart_item_id bigint not null auto_increment, total_price bigint, created_at datetime(6), product_id bigint, quantity bigint, unit_price bigint, updated_at datetime(6), cart_id bigint not null, primary key (cart_item_id)) engine=InnoDB
+2025-10-22T17:13:40.645+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table category (categoryid bigint not null auto_increment, created_at datetime(6), created_by varchar(255), name varchar(255), updated_at datetime(6), updated_by varchar(255), version bigint, primary key (categoryid)) engine=InnoDB
+2025-10-22T17:13:40.666+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table product (productid bigint not null auto_increment, created_at datetime(6), created_by varchar(255), description varchar(255), image_url varchar(255), price decimal(38,2), product_name varchar(255), stock_quantity bigint, updated_at datetime(6), updated_by varchar(255), version bigint, categoryid bigint, primary key (productid)) engine=InnoDB
+2025-10-22T17:13:40.687+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table roles (role_id bigint not null auto_increment, created_at datetime(6), name varchar(255), updated_at datetime(6), version bigint, primary key (role_id)) engine=InnoDB
+2025-10-22T17:13:40.706+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table user_roles (user_id bigint not null, role_id bigint not null) engine=InnoDB
+2025-10-22T17:13:40.727+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create table users (userid bigint not null auto_increment, address varchar(255), created_at datetime(6), email varchar(255) not null, password varchar(255) not null, phone_number bigint, updated_at datetime(6), user_name varchar(255) not null, version bigint, primary key (userid)) engine=InnoDB
+2025-10-22T17:13:40.747+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart drop index UK9emlp6m95v5er2bcqkjsw48he
+2025-10-22T17:13:40.752+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart add constraint UK9emlp6m95v5er2bcqkjsw48he unique (user_id)
+2025-10-22T17:13:40.769+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create index idx_users_username on users (user_name)
+2025-10-22T17:13:40.786+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : create index idx_users_email on users (email)
+2025-10-22T17:13:40.801+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users drop index UK6dotkott2kjsp8vw4d0m25fb7
+2025-10-22T17:13:40.803+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users add constraint UK6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2025-10-22T17:13:40.819+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users drop index UKk8d0f2n7n88w1a16yhua64onx
+2025-10-22T17:13:40.821+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table users add constraint UKk8d0f2n7n88w1a16yhua64onx unique (user_name)
+2025-10-22T17:13:40.837+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart add constraint FKg5uhi8vpsuy0lgloxk2h4w5o6 foreign key (user_id) references users (userid)
+2025-10-22T17:13:40.903+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table cart_item add constraint FK1uobyhgl1wvgt1jpccia8xxs3 foreign key (cart_id) references cart (id)
+2025-10-22T17:13:40.971+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table product add constraint FK4ort9abhumpx4t2mlngljr1vi foreign key (categoryid) references category (categoryid)
+2025-10-22T17:13:41.043+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (role_id)
+2025-10-22T17:13:41.125+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : alter table user_roles add constraint FKhfh9dx7w3ubf1co1vdev94g3f foreign key (user_id) references users (userid)
+2025-10-22T17:13:41.190+05:30  INFO 9452 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-22T17:13:41.975+05:30  WARN 9452 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-22T17:13:42.030+05:30  INFO 9452 --- [SneakoAplication] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-10-22T17:13:42.030+05:30  WARN 9452 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-22T17:13:43.050+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/sneako?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false'
+2025-10-22T17:13:43.218+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-22T17:13:43.303+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-22T17:13:43.304+05:30  INFO 9452 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-22T17:13:43.304+05:30  INFO 9452 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-22T17:13:43.331+05:30  INFO 9452 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-22T17:13:43.332+05:30  INFO 9452 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 110 ms
+2025-10-22T17:13:43.358+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-22T17:13:43.400+05:30  INFO 9452 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-22T17:13:43.413+05:30  INFO 9452 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 8.016 seconds (process running for 8.452)
+2025-10-22T17:13:43.656+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:13:43.705+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into roles (created_at,name,updated_at,version) values (?,?,?,?)
+2025-10-22T17:13:43.729+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:13:43.731+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into roles (created_at,name,updated_at,version) values (?,?,?,?)
+2025-10-22T17:13:43.738+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:13:43.797+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into users (address,created_at,email,password,phone_number,updated_at,user_name,version) values (?,?,?,?,?,?,?,?)
+2025-10-22T17:13:43.804+05:30 DEBUG 9452 --- [SneakoAplication] [main] org.hibernate.SQL                        : insert into user_roles (user_id,role_id) values (?,?)
+2025-10-22T17:14:59.704+05:30  INFO 9452 --- [SneakoAplication] [http-nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-22T17:14:59.705+05:30  INFO 9452 --- [SneakoAplication] [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-22T17:14:59.707+05:30  INFO 9452 --- [SneakoAplication] [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-22T17:14:59.968+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : select u1_0.userid from users u1_0 where u1_0.user_name=? limit ?
+2025-10-22T17:14:59.971+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : select u1_0.userid from users u1_0 where u1_0.email=? limit ?
+2025-10-22T17:14:59.971+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : select r1_0.role_id,r1_0.created_at,r1_0.name,r1_0.updated_at,r1_0.version from roles r1_0 where r1_0.name=?
+2025-10-22T17:15:00.088+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : insert into users (address,created_at,email,password,phone_number,updated_at,user_name,version) values (?,?,?,?,?,?,?,?)
+2025-10-22T17:15:00.088+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-1] org.hibernate.SQL                        : insert into user_roles (user_id,role_id) values (?,?)
+2025-10-22T17:15:51.038+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-2] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:15:51.049+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-2] org.hibernate.SQL                        : select r1_0.user_id,r1_1.role_id,r1_1.created_at,r1_1.name,r1_1.updated_at,r1_1.version from user_roles r1_0 join roles r1_1 on r1_1.role_id=r1_0.role_id where r1_0.user_id=?
+2025-10-22T17:18:00.819+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-4] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
+2025-10-22T17:18:00.819+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-4] org.hibernate.SQL                        : select r1_0.user_id,r1_1.role_id,r1_1.created_at,r1_1.name,r1_1.updated_at,r1_1.version from user_roles r1_0 join roles r1_1 on r1_1.role_id=r1_0.role_id where r1_0.user_id=?
+2025-10-22T17:18:00.936+05:30 DEBUG 9452 --- [SneakoAplication] [http-nio-8085-exec-4] org.hibernate.SQL                        : select u1_0.userid,u1_0.address,u1_0.created_at,u1_0.email,u1_0.password,u1_0.phone_number,u1_0.updated_at,u1_0.user_name,u1_0.version from users u1_0 where u1_0.user_name=?
