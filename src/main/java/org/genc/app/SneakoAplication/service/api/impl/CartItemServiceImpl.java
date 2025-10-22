@@ -4,11 +4,13 @@ package org.genc.app.SneakoAplication.service.api.impl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.genc.app.SneakoAplication.domain.entity.Cart;
 import org.genc.app.SneakoAplication.domain.entity.CartItem;
 import org.genc.app.SneakoAplication.domain.entity.Category;
 import org.genc.app.SneakoAplication.dto.CartItemDTO;
 import org.genc.app.SneakoAplication.dto.CategoryDTO;
 import org.genc.app.SneakoAplication.repo.CartItemRepository;
+import org.genc.app.SneakoAplication.repo.CartRepository;
 import org.genc.app.SneakoAplication.service.api.CartItemService;
 import org.springframework.stereotype.Service;
 
@@ -19,21 +21,36 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class CartItemServiceImpl implements CartItemService {
    private final CartItemRepository cartItemRepository;
+   private final CartRepository cartRepository;
+
+
     @Override
     public CartItemDTO createCartItem(CartItemDTO cartItemDTO) {
-        CartItem cartItemEntity=new CartItem();
-        cartItemEntity.setCartItemId(cartItemDTO.getCartItemId());
-        cartItemEntity.setProductId(cartItemDTO.getProductId());
-        cartItemEntity.setUnitPrice(cartItemDTO.getUnitPrice());
-        cartItemEntity.setQuantity(1L);
-        cartItemEntity.setTotalPrice(cartItemDTO.getTotalPrice());
-        CartItem cartItemObj=cartItemRepository.save(cartItemEntity);
-        log.info("New Category creted with the :{}",cartItemObj.getCartItemId());
-        CartItemDTO responseDTO=new CartItemDTO(cartItemObj.getCartItemId(),cartItemObj.getProductId(),
-                cartItemObj.getUnitPrice(),
-                cartItemObj.getQuantity(),cartItemObj.getTotalPrice());
-        return responseDTO;
+        Cart cart = cartRepository.findByUserId(cartItemDTO.getUserId())
+                .orElseThrow(() -> new RuntimeException("Cart not found"));
 
+        CartItem cartItem = CartItem.builder()
+                .cart(cart)
+                .productId(cartItemDTO.getProductId())
+                .unitPrice(cartItemDTO.getUnitPrice())
+                .quantity(cartItemDTO.getQuantity())
+                .TotalPrice(cartItemDTO.getUnitPrice() * cartItemDTO.getQuantity())
+                .build();
+
+        cartItemRepository.save(cartItem);
+
+        cart.getCartItems().add(cartItem);
+        cart.setTotalItem(cart.getCartItems().size());
+        cart.setTotalPrice(cart.getCartItems().stream().mapToDouble(CartItem::getTotalPrice).sum());
+        cartRepository.save(cart);
+
+        return CartItemDTO.builder()
+                .cartItemId(cartItem.getCartItemId())
+                .productId(cartItem.getProductId())
+                .unitPrice(cartItem.getUnitPrice())
+                .quantity(cartItem.getQuantity())
+                .totalPrice(cartItem.getTotalPrice())
+                .build();
     }
     @Override
     @Transactional
