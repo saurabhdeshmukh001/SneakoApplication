@@ -54,7 +54,7 @@ public class ProductServiceImpl implements ProductService {
             productEntity.setPrice(productDTO.getPrice());
         }
         if(productDTO.getCategoryName()!=null){
-            category=categoryService.findByCategoryEntityById(productDTO.getCategoryName());
+            category=categoryService.findByCategoryEntityByName(productDTO.getCategoryName());
         }
         Product perProduct=productRepository.save(productEntity);
         return mapProductEntityDTO(productEntity);
@@ -65,6 +65,12 @@ public class ProductServiceImpl implements ProductService {
         Product product=productRepository.findById(id).orElseThrow(()->new RuntimeException("Not found"));
         log.info("prouduct with the id: {} deleted",product.getProductID());
         productRepository.delete(product);
+    }
+
+    @Override
+    public ProductDTO findById(Long id) {
+        Product product=productRepository.findById(id).orElseThrow(()->new RuntimeException("Not found"));
+        return mapProductEntityDTO(product);
     }
 
     public ProductDTO mapProductEntityDTO(Product productObj)
@@ -86,7 +92,7 @@ public class ProductServiceImpl implements ProductService {
                 .stockQuantity(productDTO.getStockQuantity()).build();
         Category categoryEntity=null;
         if((productDTO.getCategoryName()!=null)){
-            categoryEntity=categoryService.findByCategoryEntityById(productDTO.getCategoryName());
+            categoryEntity=categoryService.findByCategoryEntityByName(productDTO.getCategoryName());
 
         }
         productObj.setCategory(categoryEntity);

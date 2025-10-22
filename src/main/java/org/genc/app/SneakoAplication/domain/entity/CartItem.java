@@ -1,36 +1,39 @@
 package org.genc.app.SneakoAplication.domain.entity;
 
-
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Entity
-@Getter
-@Setter
-@Builder
+@Table(name = "cart_item")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Roles {
+@Builder
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+    private Long cartItemId;
 
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id", nullable = false)
+    @ToString.Exclude
+    private Cart cart;
 
-    @ManyToMany(mappedBy = "roles")
-    private List<Users> users;
+    private Long productId;
 
-    @Version
-    private Long version;
+    private Long unitPrice;
 
+    private Long quantity;
+
+    private Long TotalPrice;
     @CreationTimestamp
     private LocalDateTime createdAt;
 

@@ -1,13 +1,16 @@
 package org.genc.app.SneakoAplication.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.security.PrivateKey;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 
@@ -15,7 +18,7 @@ import java.security.PrivateKey;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,15 +32,20 @@ public class Users {
 
     private Long phoneNumber;
 
-    private Long password;
-
+    private String password;
 
     @ManyToMany
-    private Roles role;
+    private List<Roles> roles;
 
 
     @Version
     private Long version;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
 
 
