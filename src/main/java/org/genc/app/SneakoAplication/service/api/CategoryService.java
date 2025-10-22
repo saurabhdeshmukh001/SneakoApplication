@@ -7,5 +7,5 @@ public interface CategoryService {
     public CategoryDTO createCategory(CategoryDTO categoryDTO);
 
    public CategoryDTO findById(Long id);
-   public Category findByCategoryEntityById(String name);
+   public Category findByCategoryEntityByName(String name);
 }
