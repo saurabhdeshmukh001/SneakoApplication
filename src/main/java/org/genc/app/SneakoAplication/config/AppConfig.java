@@ -40,12 +40,7 @@ public class AppConfig {
     @Bean
     public SecurityFilterChain publicApiFilterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatcher("/api/v1/cart-items/**")
-                .securityMatcher("/api/v1/categories/**")
-                .securityMatcher("/api/v1/products/**")
-                .securityMatcher("/api/v1/roles/**")
-                .securityMatcher("/api/v1/users/**")
-                .securityMatcher("/api/v1/carts/**")// ✅ Only applies to this path
+                .securityMatcher("/api/v1/**") // Only applies to public APIs
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().permitAll()
