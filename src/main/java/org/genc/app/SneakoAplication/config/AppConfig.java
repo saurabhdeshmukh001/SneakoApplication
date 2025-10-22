@@ -6,8 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class AppConfig {
@@ -35,4 +37,31 @@ public class AppConfig {
     public AuthenticationManager authenticationManager(DaoAuthenticationProvider provider) {
         return new ProviderManager(provider);
     }
+    @Bean
+    public SecurityFilterChain publicApiFilterChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/api/v1/cart-items/**")
+                .securityMatcher("/api/v1/categories/**")
+                .securityMatcher("/api/v1/products/**")
+                .securityMatcher("/api/v1/roles/**")
+                .securityMatcher("/api/v1/users/**")
+                .securityMatcher("/api/v1/carts/**")// ✅ Only applies to this path
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                );
+        return http.build();
+    }
+
+    @Bean
+    public SecurityFilterChain jwtFilterChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/api/**") // ✅ Applies to other secured APIs
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().authenticated()
+                );
+        return http.build();
+
+}
 }

@@ -15,10 +15,11 @@ public class UsersController {
     private final UsersService usersService;
 
     @PostMapping
-    public ResponseEntity<UsersDTO> createUser( @Valid  @RequestBody  UsersDTO usersDTO){
-        UsersDTO usersResponse=usersService.createUser(usersDTO);
+    public ResponseEntity<UsersDTO> createUser(@Valid @RequestBody UsersDTO usersDTO) {
+        UsersDTO usersResponse = usersService.createUser(usersDTO);
         return new ResponseEntity<>(usersResponse, HttpStatus.OK);
 
     }
+
 
 }
