@@ -1,5 +1,6 @@
 package org.genc.app.SneakoAplication.dto;
 
+import java.math.BigDecimal;
 import java.util.Set;
 import lombok.Value; // Using @Value for immutable DTOs is often preferred
 import org.genc.app.SneakoAplication.dto.CartItemDTO;
@@ -21,7 +22,7 @@ public class CartDTO {
     private final Set<CartItemDTO> cartItems;
 
     // The calculated total price of all items
-    private final double totalPrice;
+    private final BigDecimal totalPrice;
 
     // The total number of unique items/products
     private final int totalItem;

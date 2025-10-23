@@ -29,11 +29,11 @@ public class CartItem {
 
     private Long productId;
 
-    private Long unitPrice;
+    private BigDecimal unitPrice;
 
     private Long quantity;
 
-    private Long TotalPrice;
+    private BigDecimal totalPrice;
     @CreationTimestamp
     private LocalDateTime createdAt;
 

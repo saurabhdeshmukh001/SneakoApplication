@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,14 +24,14 @@ public class CartItemDTO {
 
     @NotNull(message = "Unit price is required")
     @Min(value = 1, message = "Unit price must be at least 1")
-    private Long unitPrice;
+    private BigDecimal unitPrice;
 
     @NotNull(message = "Quantity is required")
     @Min(value = 1, message = "Quantity must be at least 1")
     private Long quantity;
 
     @Nullable
-    private Long totalPrice;
+    private BigDecimal totalPrice;
 
     @NotNull(message = "User ID is required")
     private Long userId; // ✅ Add this field

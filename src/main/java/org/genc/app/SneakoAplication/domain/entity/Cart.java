@@ -5,12 +5,15 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "cart")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -22,12 +25,18 @@ public class Cart {
 
     private Long userId;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<CartItem> cartItems;
+    @OneToMany(
+            mappedBy = "cart",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private Set<CartItem> cartItems = new HashSet<>(); // ✅ Initialized to avoid null
 
-    private Double totalPrice;
+    @Column(precision = 10, scale = 2)
+    private BigDecimal totalPrice = BigDecimal.ZERO; // ✅ Use BigDecimal for money
 
-    private Integer totalItem;
+    private Integer totalItem = 0;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
