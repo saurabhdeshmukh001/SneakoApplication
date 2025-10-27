@@ -496,3 +496,155 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'r1_0.id' in 'field 
 2025-10-27T12:05:58.922+05:30  INFO 35144 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-10-27T12:05:58.926+05:30  INFO 35144 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-10-27T12:05:58.946+05:30  INFO 35144 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-27T12:06:02.004+05:30  INFO 19220 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 19220 (C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend\target\classes started by 2440671 in C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend)
+2025-10-27T12:06:02.007+05:30  INFO 19220 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-27T12:06:04.324+05:30  INFO 19220 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-27T12:06:04.511+05:30  INFO 19220 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 167 ms. Found 8 JPA repository interfaces.
+2025-10-27T12:06:05.680+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-27T12:06:05.714+05:30  INFO 19220 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:06:05.714+05:30  INFO 19220 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:06:05.857+05:30  INFO 19220 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:06:05.857+05:30  INFO 19220 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3760 ms
+2025-10-27T12:06:06.261+05:30  INFO 19220 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-27T12:06:06.502+05:30  INFO 19220 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d913116
+2025-10-27T12:06:06.505+05:30  INFO 19220 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-27T12:06:06.569+05:30  INFO 19220 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-27T12:06:06.650+05:30  INFO 19220 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-27T12:06:06.740+05:30  INFO 19220 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-27T12:06:07.151+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-27T12:06:07.234+05:30  WARN 19220 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-27T12:06:07.254+05:30  INFO 19220 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-27T12:06:08.241+05:30  INFO 19220 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-27T12:06:08.400+05:30  INFO 19220 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T12:06:09.129+05:30  INFO 19220 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-27T12:06:09.756+05:30  WARN 19220 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-27T12:06:12.007+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-27T12:06:12.200+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-27T12:06:12.202+05:30  INFO 19220 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:06:12.204+05:30  INFO 19220 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:06:12.323+05:30  INFO 19220 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:06:12.323+05:30  INFO 19220 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 308 ms
+2025-10-27T12:06:12.356+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-27T12:06:12.478+05:30  INFO 19220 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-27T12:06:12.493+05:30  INFO 19220 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 11.169 seconds (process running for 11.921)
+2025-10-27T12:06:12.927+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:06:12.956+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:06:12.960+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:06:12.976+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:06:12.987+05:30  INFO 19220 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 
+2025-10-27T12:06:12.989+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:06:12.994+05:30 DEBUG 19220 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:06:12.998+05:30  INFO 19220 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 
+2025-10-27T12:27:39.526+05:30  INFO 19220 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27T12:27:39.539+05:30  INFO 19220 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-27T12:27:39.541+05:30  INFO 19220 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27T12:27:39.550+05:30  INFO 19220 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-27T12:27:39.569+05:30  INFO 19220 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T12:27:39.572+05:30  INFO 19220 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-27T12:27:39.587+05:30  INFO 19220 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-27T12:27:45.868+05:30  INFO 29484 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 29484 (C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend\target\classes started by 2440671 in C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend)
+2025-10-27T12:27:45.877+05:30  INFO 29484 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-27T12:27:49.149+05:30  INFO 29484 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-27T12:27:49.425+05:30  INFO 29484 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 236 ms. Found 8 JPA repository interfaces.
+2025-10-27T12:27:51.255+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-27T12:27:51.281+05:30  INFO 29484 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:27:51.281+05:30  INFO 29484 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:27:51.405+05:30  INFO 29484 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:27:51.406+05:30  INFO 29484 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5401 ms
+2025-10-27T12:27:52.042+05:30  INFO 29484 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-27T12:27:52.384+05:30  INFO 29484 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65753724
+2025-10-27T12:27:52.388+05:30  INFO 29484 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-27T12:27:52.470+05:30  INFO 29484 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-27T12:27:52.715+05:30  INFO 29484 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-27T12:27:52.804+05:30  INFO 29484 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-27T12:27:53.364+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-27T12:27:53.453+05:30  WARN 29484 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-27T12:27:53.474+05:30  INFO 29484 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-27T12:27:54.955+05:30  INFO 29484 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-27T12:27:55.093+05:30  INFO 29484 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T12:27:56.183+05:30  INFO 29484 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-27T12:27:56.773+05:30  WARN 29484 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-27T12:27:58.027+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-27T12:27:58.157+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-27T12:27:58.158+05:30  INFO 29484 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:27:58.158+05:30  INFO 29484 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:27:58.191+05:30  INFO 29484 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:27:58.192+05:30  INFO 29484 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 159 ms
+2025-10-27T12:27:58.215+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-27T12:27:58.341+05:30  INFO 29484 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-27T12:27:58.380+05:30  INFO 29484 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 13.266 seconds (process running for 14.042)
+2025-10-27T12:27:58.842+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:27:58.875+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:27:58.880+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:27:58.891+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:27:58.897+05:30  INFO 29484 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 
+2025-10-27T12:27:58.898+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:27:58.900+05:30 DEBUG 29484 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:27:58.902+05:30  INFO 29484 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 
+2025-10-27T12:28:45.864+05:30  INFO 29484 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27T12:28:45.883+05:30  INFO 29484 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-27T12:28:45.884+05:30  INFO 29484 --- [SneakoAplication] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27T12:28:45.896+05:30  INFO 29484 --- [SneakoAplication] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-27T12:28:45.918+05:30  INFO 29484 --- [SneakoAplication] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T12:28:45.922+05:30  INFO 29484 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-27T12:28:45.940+05:30  INFO 29484 --- [SneakoAplication] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-27T12:28:48.649+05:30  INFO 12272 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Starting SneakoAplication using Java 21 with PID 12272 (C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend\target\classes started by 2440671 in C:\Users\2440671\genCworkspaces\Spring_Project_test\SneakoBackend)
+2025-10-27T12:28:48.651+05:30  INFO 12272 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : The following 1 profile is active: "dev"
+2025-10-27T12:28:50.963+05:30  INFO 12272 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-27T12:28:51.338+05:30  INFO 12272 --- [SneakoAplication] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 325 ms. Found 8 JPA repository interfaces.
+2025-10-27T12:28:53.050+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2025-10-27T12:28:53.113+05:30  INFO 12272 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:28:53.114+05:30  INFO 12272 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:28:53.276+05:30  INFO 12272 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:28:53.277+05:30  INFO 12272 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4541 ms
+2025-10-27T12:28:53.694+05:30  INFO 12272 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-27T12:28:54.126+05:30  INFO 12272 --- [SneakoAplication] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c27e700
+2025-10-27T12:28:54.138+05:30  INFO 12272 --- [SneakoAplication] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-27T12:28:54.287+05:30  INFO 12272 --- [SneakoAplication] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-27T12:28:54.545+05:30  INFO 12272 --- [SneakoAplication] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-27T12:28:54.620+05:30  INFO 12272 --- [SneakoAplication] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-27T12:28:55.002+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-27T12:28:55.081+05:30  WARN 12272 --- [SneakoAplication] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-27T12:28:55.094+05:30  INFO 12272 --- [SneakoAplication] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-27T12:28:56.255+05:30  INFO 12272 --- [SneakoAplication] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-27T12:28:56.395+05:30  INFO 12272 --- [SneakoAplication] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-27T12:28:57.149+05:30  INFO 12272 --- [SneakoAplication] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-27T12:28:57.757+05:30  WARN 12272 --- [SneakoAplication] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-27T12:28:59.678+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2025-10-27T12:28:59.805+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2025-10-27T12:28:59.807+05:30  INFO 12272 --- [SneakoAplication] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-27T12:28:59.807+05:30  INFO 12272 --- [SneakoAplication] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27T12:28:59.842+05:30  INFO 12272 --- [SneakoAplication] [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-27T12:28:59.843+05:30  INFO 12272 --- [SneakoAplication] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 155 ms
+2025-10-27T12:28:59.865+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+2025-10-27T12:29:00.004+05:30  INFO 12272 --- [SneakoAplication] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2025-10-27T12:29:00.018+05:30  INFO 12272 --- [SneakoAplication] [main] o.g.a.SneakoAplication.SneakoAplication  : Started SneakoAplication in 12.005 seconds (process running for 12.631)
+2025-10-27T12:29:00.367+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:29:00.429+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.id,r1_0.description,r1_0.name from roles r1_0 where r1_0.name=?
+2025-10-27T12:29:00.445+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:29:00.494+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:29:00.518+05:30  INFO 12272 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 
+2025-10-27T12:29:00.527+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select u1_0.id,u1_0.address,u1_0.email,u1_0.password,u1_0.phone,u1_0.username from users u1_0 where u1_0.username=?
+2025-10-27T12:29:00.536+05:30 DEBUG 12272 --- [SneakoAplication] [main] org.hibernate.SQL                        : select r1_0.user_id,r1_1.id,r1_1.description,r1_1.name from user_roles r1_0 join roles r1_1 on r1_1.id=r1_0.role_id where r1_0.user_id=?
+2025-10-27T12:29:00.545+05:30  INFO 12272 --- [SneakoAplication] [main] o.g.a.S.s.impl.UserMgmtServiceImpl       : if User doesn't exists false 

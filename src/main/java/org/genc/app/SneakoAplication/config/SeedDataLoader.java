@@ -36,7 +36,7 @@ public class SeedDataLoader implements CommandLineRunner {
                 .build());
 
         // Create admin user
-        if (userMgmtService.isNewUser("user")) {
+        if (userMgmtService.isNewUser("admin")) {
             UserRegistrationRequestDTO userReqDTO = new UserRegistrationRequestDTO("admin", "admin123",
                     "gencadmin@cognizant.com", ADMIN, "GENC",
                     "9657932761");

@@ -75,7 +75,7 @@ public class UserMgmtServiceImpl implements UserMgmtService {
 
     @Override
     public boolean isNewUser(String userName) {
-        Optional<User> userObj =  userRepository.findByUsername("user");
+        Optional<User> userObj =  userRepository.findByUsername(userName);
         log.info("if User doesn't exists {} ", userObj.isEmpty());
         return userObj.isEmpty();
     }
