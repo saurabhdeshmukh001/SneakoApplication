@@ -1,4 +1,4 @@
-package org.genc.app.SneakoAplication.service.api.impl;
+package org.genc.app.SneakoAplication.service.impl;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,6 @@
 package org.genc.app.SneakoAplication.contoller;
 
 import lombok.RequiredArgsConstructor;
-import org.genc.app.SneakoAplication.domain.entity.CartItem;
-import org.genc.app.SneakoAplication.dto.CartDTO;
 import org.genc.app.SneakoAplication.dto.CartItemDTO;
 import org.genc.app.SneakoAplication.service.api.CartItemService;
 import org.springframework.http.HttpStatus;
