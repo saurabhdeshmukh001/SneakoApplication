@@ -1,9 +1,9 @@
 package org.genc.app.SneakoAplication.enums;
 
 public enum RoleType {
-    ADMIN("Administrator Role"),
+    ROLE_ADMIN("Administrator Role"),
     ROLE_DEV("Standard User Role"),
-    USER("Developer  JAVA FSE");
+    ROLE_CUSTOMER("Developer  JAVA FSE");
 
 
     private final String description;

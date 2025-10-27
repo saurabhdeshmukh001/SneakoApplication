@@ -1,0 +1,63 @@
+package org.genc.app.SneakoAplication.contoller;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.genc.app.SneakoAplication.dto.OrderDTO;
+import org.genc.app.SneakoAplication.dto.ProductDTO;
+import org.genc.app.SneakoAplication.repo.UserRepository;
+import org.genc.app.SneakoAplication.service.api.OrderService;
+import org.genc.app.SneakoAplication.service.api.ProductService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/admin")
+@RequiredArgsConstructor
+public class AdminController {
+    private final ProductService productService;
+    private final OrderService orderService;
+
+
+    @PostMapping("/product")
+    public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductDTO productdto)
+    {
+        ProductDTO responseDTO=productService.createProduct(productdto);
+        return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/product")
+    public ResponseEntity<Page<ProductDTO>> getProducts(@RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "10")int size){
+        Pageable pageable= PageRequest.of(page, size);
+        Page<ProductDTO> ProductDTOPage=productService.getProduct(pageable);
+        return  new ResponseEntity<>(ProductDTOPage, HttpStatus.OK);
+    }
+
+    @PutMapping("product/{id}")
+    public ResponseEntity<ProductDTO> updateProduct( @PathVariable Long id,
+                                                     @RequestBody ProductDTO productDTO){
+        ProductDTO respdto=productService.updateProduct(id,productDTO);
+        return new ResponseEntity<>(respdto,HttpStatus.OK);
+
+    }
+    @DeleteMapping("product/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
+
+    }
+    @GetMapping("/orders")
+    public  ResponseEntity<Page<OrderDTO>> getOrders(@RequestParam(defaultValue = "0") int page,
+                                                     @RequestParam(defaultValue = "10")int size){
+        Pageable pageable= PageRequest.of(page, size);
+        Page<OrderDTO> OrderDTOPage=orderService.getOrders(pageable);
+        return  new ResponseEntity<>(OrderDTOPage,HttpStatus.OK);
+    }
+
+
+
+}

@@ -17,4 +17,7 @@ public class OrderDTO {
     private String orderStatus;
     private LocalDateTime orderDate;
     private List<OrderItemDTO> orderItems;
+
+    public OrderDTO(Long orderId, Long userId, String shippingAddress, BigDecimal totalPrice, String orderStatus, LocalDateTime orderDate) {
+    }
 }

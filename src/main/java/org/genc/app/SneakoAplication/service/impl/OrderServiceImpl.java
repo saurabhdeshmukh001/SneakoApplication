@@ -4,11 +4,15 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.genc.app.SneakoAplication.domain.entity.Order;
 import org.genc.app.SneakoAplication.domain.entity.OrderItem;
+import org.genc.app.SneakoAplication.domain.entity.Product;
 import org.genc.app.SneakoAplication.dto.OrderDTO;
 import org.genc.app.SneakoAplication.dto.OrderItemDTO;
+import org.genc.app.SneakoAplication.dto.OrderDTO;
 import org.genc.app.SneakoAplication.repo.OrderItemRepository;
 import org.genc.app.SneakoAplication.repo.OrderRepository;
 import org.genc.app.SneakoAplication.service.api.OrderService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -108,5 +112,20 @@ public class OrderServiceImpl implements OrderService {
                 .orderDate(order.getOrderDate())
                 .orderItems(itemDTOs) // ✅ add this
                 .build();
+    }
+
+    @Override
+    public Page<OrderDTO> getOrders(Pageable pageable) {
+        Page<Order> orderPage=orderRepository.findAll(pageable);
+        return orderPage.map(this::mapProductEntityDTO);
+    }
+    public OrderDTO mapProductEntityDTO(Order orderObj)
+    {
+        return new OrderDTO(orderObj.getOrderId(),
+                orderObj.getUserId(),
+                orderObj.getShippingAddress(),
+                orderObj.getTotalPrice(),
+                orderObj.getOrderStatus(),
+                orderObj.getOrderDate());
     }
 }
