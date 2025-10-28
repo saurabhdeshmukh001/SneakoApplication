@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class CustomUserDetails  implements UserDetails {
     private final String username;
     private final String password;
+    private final Long id;
     private final Set<GrantedAuthority> authorities;
     // Additional fields
     private final String email;
@@ -26,6 +27,7 @@ public class CustomUserDetails  implements UserDetails {
         this.authorities =  user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().toString()))
                 .collect(Collectors.toSet());
+        this.id= user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.email = user.getEmail();

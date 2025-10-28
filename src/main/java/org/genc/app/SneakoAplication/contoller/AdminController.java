@@ -4,9 +4,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.genc.app.SneakoAplication.dto.OrderDTO;
 import org.genc.app.SneakoAplication.dto.ProductDTO;
+import org.genc.app.SneakoAplication.dto.UserDetailsDTO;
 import org.genc.app.SneakoAplication.repo.UserRepository;
 import org.genc.app.SneakoAplication.service.api.OrderService;
 import org.genc.app.SneakoAplication.service.api.ProductService;
+import org.genc.app.SneakoAplication.service.api.UserDetailsService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,12 +16,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/admin")
 @RequiredArgsConstructor
 public class AdminController {
     private final ProductService productService;
     private final OrderService orderService;
+    private final UserDetailsService userDetailsService;
 
 
     @PostMapping("/product")
@@ -58,6 +63,18 @@ public class AdminController {
         return  new ResponseEntity<>(OrderDTOPage,HttpStatus.OK);
     }
 
+    @GetMapping("/Users")
+    public ResponseEntity<List<UserDetailsDTO>> getAllUsers() {
+        List<UserDetailsDTO> users = userDetailsService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
+
+    @DeleteMapping("users/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
+        userDetailsService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
+    }
 
 
 }

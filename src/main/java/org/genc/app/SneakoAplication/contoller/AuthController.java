@@ -71,7 +71,7 @@ public class AuthController {
             }
             String token = jwtUtil.generateToken(user);
 
-            AuthResponseDTO response = new AuthResponseDTO(token, user.getUsername(), user.getAddress(),
+            AuthResponseDTO response = new AuthResponseDTO(token,user.getId(), user.getUsername(), user.getAddress(),
                   request.getRole(),  user.getEmail(), user.getPhone(),instanceId + appName);
 
             log.info("Access from {} on port {} (instance: {})", appName, serverPort, instanceId);
