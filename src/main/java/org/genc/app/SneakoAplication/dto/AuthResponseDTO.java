@@ -6,7 +6,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class AuthResponseDTO {
+
     private String jwt;
+    private Long id;
     private String userId;
     private String address;
     private String role;
