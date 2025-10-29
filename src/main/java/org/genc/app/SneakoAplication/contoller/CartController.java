@@ -3,6 +3,7 @@ package org.genc.app.SneakoAplication.contoller;
 import lombok.RequiredArgsConstructor;
 import org.genc.app.SneakoAplication.dto.CartDTO;
 import org.genc.app.SneakoAplication.service.api.CartService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +15,8 @@ public class CartController {
     private final CartService cartService;
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<CartDTO> getCartByUser(@PathVariable Long userId) {
-        return ResponseEntity.ok(cartService.getCartByUserId(userId));
-    }
-
-    @PatchMapping("/{cartId}/recalculate")
-    public ResponseEntity<CartDTO> recalculateCart(@PathVariable Long cartId) {
-        return ResponseEntity.ok(cartService.recalculateCart(cartId));
+    public ResponseEntity<CartDTO> getCartByUserId(@PathVariable Long userId) {
+        CartDTO cartDTO = cartService.getCartByUserId(userId);
+        return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 }

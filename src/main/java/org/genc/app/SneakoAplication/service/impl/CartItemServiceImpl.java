@@ -12,8 +12,9 @@ import org.genc.app.SneakoAplication.service.api.CartItemService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -27,43 +28,71 @@ public class CartItemServiceImpl implements CartItemService {
     @Transactional
     public CartItemDTO createCartItem(CartItemDTO cartItemDTO) {
         Cart cart = cartRepository.findByUserId(cartItemDTO.getUserId())
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
+                .orElseGet(() -> {
+                    Cart newCart = Cart.builder()
+                            .userId(cartItemDTO.getUserId())
+                            .totalPrice(BigDecimal.ZERO)
+                            .totalItem(0)
+                            .cartItems(new HashSet<>())
+                            .build();
+                    return cartRepository.save(newCart);
+                });
 
-        BigDecimal unitPrice = cartItemDTO.getUnitPrice();
-        Long quantity = cartItemDTO.getQuantity();
-        BigDecimal totalPrice = unitPrice.multiply(BigDecimal.valueOf(quantity));
+        List<CartItem> existingItems = cartItemRepository.findExistingItems(
+                cartItemDTO.getUserId(),
+                cartItemDTO.getProductId(),
+                cartItemDTO.getSize()
+        );
 
-        CartItem cartItem = CartItem.builder()
-                .cart(cart)
-                .productId(cartItemDTO.getProductId())
-                .unitPrice(unitPrice)
-                .quantity(quantity)
-                .totalPrice(totalPrice)
-                .build();
 
-        cartItemRepository.save(cartItem);
+        CartItem finalItem;
+
+        if (!existingItems.isEmpty()) {
+            CartItem existingItem = existingItems.get(0); // pick first
+            Long newQuantity = existingItem.getQuantity() + cartItemDTO.getQuantity();
+            existingItem.setQuantity(newQuantity);
+            BigDecimal newTotalPrice = existingItem.getUnitPrice().multiply(BigDecimal.valueOf(newQuantity));
+            existingItem.setTotalPrice(newTotalPrice);
+            finalItem = cartItemRepository.save(existingItem);
+        } else {
+            BigDecimal unitPrice = BigDecimal.valueOf(cartItemDTO.getUnitPrice());
+            Long quantity = cartItemDTO.getQuantity();
+            BigDecimal totalPrice = unitPrice.multiply(BigDecimal.valueOf(quantity));
+
+            CartItem newItem = CartItem.builder()
+                    .cart(cart)
+                    .productId(cartItemDTO.getProductId())
+                    .unitPrice(unitPrice)
+                    .quantity(quantity)
+                    .totalPrice(totalPrice)
+                    .size(cartItemDTO.getSize())
+                    .build();
+
+            finalItem = cartItemRepository.save(newItem);
+            cart.getCartItems().add(finalItem);
+        }
+
 
         // Recalculate cart totals
-        Set<CartItem> cartItems = cartItemRepository.findAll().stream()
-                .filter(item -> item.getCart().getId().equals(cart.getId()))
-                .collect(Collectors.toSet());
-
-        BigDecimal cartTotalPrice = cartItems.stream()
+        BigDecimal cartTotalPrice = cart.getCartItems().stream()
                 .map(CartItem::getTotalPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        int totalItems = cart.getCartItems().stream()
+                .mapToInt(item -> item.getQuantity().intValue())
+                .sum();
 
-        int totalItems = cartItems.size();
 
         cart.setTotalPrice(cartTotalPrice);
         cart.setTotalItem(totalItems);
         cartRepository.save(cart);
 
         return CartItemDTO.builder()
-                .cartItemId(cartItem.getCartItemId())
-                .productId(cartItem.getProductId())
-                .unitPrice(cartItem.getUnitPrice())
-                .quantity(cartItem.getQuantity())
-                .totalPrice(cartItem.getTotalPrice())
+                .cartItemId(finalItem.getCartItemId())
+                .productId(finalItem.getProductId())
+                .unitPrice(finalItem.getUnitPrice().doubleValue())
+                .quantity(finalItem.getQuantity())
+                .totalPrice(finalItem.getTotalPrice().doubleValue())
+                .size(finalItem.getSize())
                 .build();
     }
 
@@ -84,16 +113,13 @@ public class CartItemServiceImpl implements CartItemService {
                 "CartItem not found for CartItem ID: " + cartItemDTO.getCartItemId() +
                         " and Product ID: " + cartItemDTO.getProductId()));
 
-        Long newQuantity = cartItemDTO.getQuantity();
-        cartItem.setQuantity(newQuantity);
-
-        BigDecimal unitPrice = cartItem.getUnitPrice(); // use existing stored unit price
-        BigDecimal newTotalPrice = unitPrice.multiply(BigDecimal.valueOf(newQuantity));
+        cartItem.setQuantity(cartItemDTO.getQuantity());
+        BigDecimal newTotalPrice = cartItem.getUnitPrice().multiply(BigDecimal.valueOf(cartItemDTO.getQuantity()));
         cartItem.setTotalPrice(newTotalPrice);
 
         CartItem updatedItem = cartItemRepository.save(cartItem);
 
-        cartItemDTO.setTotalPrice(updatedItem.getTotalPrice());
+        cartItemDTO.setTotalPrice(updatedItem.getTotalPrice().doubleValue());
         return cartItemDTO;
     }
 
@@ -106,8 +132,32 @@ public class CartItemServiceImpl implements CartItemService {
                 .cartItemId(cartItem.getCartItemId())
                 .productId(cartItem.getProductId())
                 .quantity(cartItem.getQuantity())
-                .unitPrice(cartItem.getUnitPrice())
-                .totalPrice(cartItem.getTotalPrice())
+                .unitPrice(cartItem.getUnitPrice().doubleValue())
+                .totalPrice(cartItem.getTotalPrice().doubleValue())
+                .size(cartItem.getSize())
                 .build();
+    }
+
+    @Override
+    @Transactional
+    public void deleteCartItem(Long id) {
+        CartItem cartItem = cartItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("CartItem not found"));
+
+        Cart cart = cartItem.getCart();
+        cartItemRepository.delete(cartItem);
+        cart.getCartItems().remove(cartItem);
+
+        BigDecimal cartTotalPrice = cart.getCartItems().stream()
+                .map(CartItem::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        int totalItems = cart.getCartItems().stream()
+                .mapToInt(item -> item.getQuantity().intValue())
+                .sum();
+
+
+        cart.setTotalPrice(cartTotalPrice);
+        cart.setTotalItem(totalItems);
+        cartRepository.save(cart);
     }
 }

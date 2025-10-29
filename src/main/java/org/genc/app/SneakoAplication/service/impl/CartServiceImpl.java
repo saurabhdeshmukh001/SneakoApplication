@@ -24,15 +24,23 @@ public class CartServiceImpl implements CartService {
     @Transactional
     public CartDTO getCartByUserId(Long userId) {
         Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
+                .orElseGet(() -> {
+                    Cart newCart = Cart.builder()
+                            .userId(userId)
+                            .totalPrice(BigDecimal.ZERO)
+                            .totalItem(0)
+                            .build();
+                    return cartRepository.save(newCart);
+                });
 
         Set<CartItemDTO> itemDTOs = cart.getCartItems().stream()
                 .map(item -> CartItemDTO.builder()
                         .cartItemId(item.getCartItemId())
                         .productId(item.getProductId())
-                        .unitPrice(item.getUnitPrice())
+                        .unitPrice(item.getUnitPrice().doubleValue())
                         .quantity(item.getQuantity())
-                        .totalPrice(item.getTotalPrice())
+                        .totalPrice(item.getTotalPrice().doubleValue())
+                        .size(item.getSize()) // Added size mapping
                         .build())
                 .collect(Collectors.toSet());
 
@@ -40,7 +48,7 @@ public class CartServiceImpl implements CartService {
                 cart.getId(),
                 cart.getUserId(),
                 itemDTOs,
-                cart.getTotalPrice(),
+                cart.getTotalPrice().doubleValue(),
                 cart.getTotalItem()
         );
     }

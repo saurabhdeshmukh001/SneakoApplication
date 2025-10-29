@@ -1,5 +1,6 @@
 package org.genc.app.SneakoAplication.service.api;
 
+import org.genc.app.SneakoAplication.dto.OrderDTO;
 import org.genc.app.SneakoAplication.dto.OrderItemDTO;
 import java.util.List;
 
@@ -9,4 +10,5 @@ public interface OrderItemService {
     void deleteOrderItem(Long id);
     OrderItemDTO findOrderItemById(Long id);
     List<OrderItemDTO> findItemsByOrderId(Long orderId);
+
 }

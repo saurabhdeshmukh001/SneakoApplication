@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserDetailsService {
     List<UserDetailsDTO> getAllUsers();
     void deleteUserById(Long id);
+    UserDetailsDTO findById(Long id);
+
 }

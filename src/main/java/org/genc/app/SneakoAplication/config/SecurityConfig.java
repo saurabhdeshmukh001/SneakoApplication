@@ -67,7 +67,16 @@ public class SecurityConfig {
 
                         // Restrict access for authenticated requests
                         .requestMatchers(BASE_SERVICE_PATH+"/users/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/product/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/order-items/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/payment/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/orders/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/categories/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/cart-items/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/carts/**").hasAnyRole("USER","ADMIN")
+
                         .requestMatchers(BASE_SERVICE_PATH+"/roles/**").hasRole("ADMIN")
+                        .requestMatchers(BASE_SERVICE_PATH+"/admin/**").hasRole("ADMIN")
 
                         // All other endpoints require authentication
                         .anyRequest().authenticated()
@@ -97,7 +106,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         // Use List.of for immutable, cleaner lists
         configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE","PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

@@ -9,5 +9,7 @@ public interface OrderService {
     OrderDTO createOrder(OrderDTO orderDTO);
     OrderDTO findOrderById(Long id);
     public Page<OrderDTO> getOrders(Pageable pageable);
+    OrderDTO updateOrderStatus(Long orderId, String newStatus);
+
 
 }
