@@ -178,4 +178,23 @@ public class OrderServiceImpl implements OrderService {
                 .build();
     }
 
+    @Override
+    public Long calculateTotalRevenue() {
+        List<Order> allOrders = orderRepository.findAll();
+
+        BigDecimal totalRevenue = allOrders.stream()
+                .map(Order::getTotalPrice)
+                .filter(price -> price != null)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return totalRevenue.longValue();
+    }
+
+    @Override
+    public Long totalOrders() {
+        return orderRepository.count();
+    }
+
+
+
 }

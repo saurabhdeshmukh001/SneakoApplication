@@ -12,5 +12,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
     @Query("SELECT u FROM User u JOIN u.roles r WHERE r.name = :roleName")
     List<User> findAllByRoleName(@Param("roleName") org.genc.app.SneakoAplication.enums.RoleType roleName);
+    @Query("SELECT COUNT(u) FROM User u JOIN u.roles r WHERE r.name = :roleName")
+    Long countByRoleName(@Param("roleName") org.genc.app.SneakoAplication.enums.RoleType roleName);
+
 
 }

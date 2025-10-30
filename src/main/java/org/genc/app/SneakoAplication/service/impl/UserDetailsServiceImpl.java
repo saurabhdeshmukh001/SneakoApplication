@@ -53,4 +53,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .build();
     }
 
+    @Override
+    public Long TotalUsers() {
+        return userRepository.countByRoleName(RoleType.ROLE_CUSTOMER);
+    }
+
+
 }

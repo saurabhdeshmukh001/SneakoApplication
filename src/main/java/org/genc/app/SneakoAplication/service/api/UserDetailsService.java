@@ -5,8 +5,10 @@ import org.genc.app.SneakoAplication.dto.UserDetailsDTO;
 import java.util.List;
 
 public interface UserDetailsService {
-    List<UserDetailsDTO> getAllUsers();
-    void deleteUserById(Long id);
-    UserDetailsDTO findById(Long id);
+   public List<UserDetailsDTO> getAllUsers();
+    public void deleteUserById(Long id);
+    public  UserDetailsDTO findById(Long id);
+    public  Long TotalUsers();
+
 
 }

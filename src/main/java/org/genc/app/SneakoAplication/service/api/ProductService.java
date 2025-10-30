@@ -10,5 +10,6 @@ public interface ProductService {
     public  ProductDTO updateProduct(Long id,ProductDTO productDTO);
     public void  deleteProduct(Long id);
     public ProductDTO findById(Long id);
+    public Long totalProduct();
 
 }

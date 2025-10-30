@@ -73,6 +73,12 @@ public class ProductServiceImpl implements ProductService {
         return mapProductEntityDTO(product);
     }
 
+    @Override
+    public Long totalProduct() {
+        return productRepository.count();
+    }
+
+
     public ProductDTO mapProductEntityDTO(Product productObj)
     {
         return new ProductDTO(productObj.getProductID(),

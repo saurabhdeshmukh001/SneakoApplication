@@ -2,6 +2,7 @@ package org.genc.app.SneakoAplication.contoller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.genc.app.SneakoAplication.dto.AnalyticsDTO;
 import org.genc.app.SneakoAplication.dto.OrderDTO;
 import org.genc.app.SneakoAplication.dto.ProductDTO;
 import org.genc.app.SneakoAplication.dto.UserDetailsDTO;
@@ -94,6 +95,19 @@ public class AdminController {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/analytics")
+    public  ResponseEntity<AnalyticsDTO>  calculateAnayltics(){
+        Long totalRevenue=orderService.calculateTotalRevenue();
+        Long totalusers=userDetailsService.TotalUsers();
+        Long totalOrders= orderService.totalOrders();
+        Long totalProducts=productService.totalProduct();
 
+        AnalyticsDTO analyticsDTO = new AnalyticsDTO(totalRevenue, totalOrders,totalusers,totalProducts);
+
+        return ResponseEntity.ok(analyticsDTO);
+
+
+
+    }
 
 }
