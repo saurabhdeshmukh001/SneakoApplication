@@ -6,10 +6,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface OrderService {
-    OrderDTO createOrder(OrderDTO orderDTO);
-    OrderDTO findOrderById(Long id);
+   public OrderDTO createOrder(OrderDTO orderDTO);
+  public   OrderDTO findOrderById(Long id);
     public Page<OrderDTO> getOrders(Pageable pageable);
-    OrderDTO updateOrderStatus(Long orderId, String newStatus);
+    public OrderDTO updateOrderStatus(Long orderId, String newStatus);
+    public Long calculateTotalRevenue();
+    public Long totalOrders();
+
 
 
 }
