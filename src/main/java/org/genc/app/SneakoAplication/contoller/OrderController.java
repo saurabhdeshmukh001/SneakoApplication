@@ -2,7 +2,6 @@ package org.genc.app.SneakoAplication.contoller;
 
 import lombok.RequiredArgsConstructor;
 import org.genc.app.SneakoAplication.dto.OrderDTO;
-import org.genc.app.SneakoAplication.dto.ProductDTO;
 import org.genc.app.SneakoAplication.service.api.OrderService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,13 +18,12 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping
-    public  ResponseEntity<Page<OrderDTO>> getOrders(@RequestParam(defaultValue = "0") int page,
-                                                         @RequestParam(defaultValue = "10")int size){
-        Pageable pageable= PageRequest.of(page, size);
-        Page<OrderDTO> OrderDTOPage=orderService.getOrders(pageable);
-        return  new ResponseEntity<>(OrderDTOPage,HttpStatus.OK);
+    public ResponseEntity<Page<OrderDTO>> getOrders(@RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<OrderDTO> orderDTOPage = orderService.getOrders(pageable);
+        return new ResponseEntity<>(orderDTOPage, HttpStatus.OK);
     }
-
 
     @PostMapping
     public ResponseEntity<OrderDTO> createOrder(@RequestBody OrderDTO orderDTO) {

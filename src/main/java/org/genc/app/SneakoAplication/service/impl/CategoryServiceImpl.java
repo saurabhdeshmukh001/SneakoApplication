@@ -8,6 +8,7 @@ import org.genc.app.SneakoAplication.repo.CategoryRepository;
 import org.genc.app.SneakoAplication.service.api.CategoryService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,4 +48,16 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryOptional
                 .orElseThrow(() -> new RuntimeException("Category Not Found by name: " + name));
     }
+
+    @Override
+    public List<CategoryDTO> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream()
+                .map(category -> CategoryDTO.builder()
+                        .categoryID(category.getCategoryID())
+                        .name(category.getName())
+                        .build())
+                .toList();
+    }
+
 }

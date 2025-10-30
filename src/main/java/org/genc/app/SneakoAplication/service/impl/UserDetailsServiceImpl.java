@@ -41,4 +41,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .build();
     }
 
+    @Override
+    public UserDetailsDTO findById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return UserDetailsDTO.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .email(user.getEmail())
+                .build();
+    }
+
 }

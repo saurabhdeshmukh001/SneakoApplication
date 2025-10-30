@@ -27,6 +27,12 @@ public class AdminController {
     private final UserDetailsService userDetailsService;
 
 
+    @GetMapping("/product/{id}")
+    public ResponseEntity<ProductDTO>  findById( @PathVariable  Long id){
+        return new ResponseEntity<>(productService.findById(id),HttpStatus.OK);
+    }
+
+
     @PostMapping("/product")
     public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductDTO productdto)
     {
@@ -42,14 +48,14 @@ public class AdminController {
         return  new ResponseEntity<>(ProductDTOPage, HttpStatus.OK);
     }
 
-    @PutMapping("product/{id}")
+    @PutMapping("/product/{id}")
     public ResponseEntity<ProductDTO> updateProduct( @PathVariable Long id,
                                                      @RequestBody ProductDTO productDTO){
         ProductDTO respdto=productService.updateProduct(id,productDTO);
         return new ResponseEntity<>(respdto,HttpStatus.OK);
 
     }
-    @DeleteMapping("product/{id}")
+    @DeleteMapping("/product/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
@@ -63,18 +69,31 @@ public class AdminController {
         return  new ResponseEntity<>(OrderDTOPage,HttpStatus.OK);
     }
 
-    @GetMapping("/Users")
+    @GetMapping("/users")
     public ResponseEntity<List<UserDetailsDTO>> getAllUsers() {
         List<UserDetailsDTO> users = userDetailsService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 
 
-    @DeleteMapping("users/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
         userDetailsService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("orders/{id}")
+    public ResponseEntity<OrderDTO> updateOrderStatus(@PathVariable Long id, @RequestBody OrderDTO updatedOrder) {
+        OrderDTO updated = orderService.updateOrderStatus(id, updatedOrder.getOrderStatus());
+        return new ResponseEntity<>(updated, HttpStatus.OK);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<UserDetailsDTO> getUserById(@PathVariable Long id) {
+        UserDetailsDTO user = userDetailsService.findById(id);
+        return ResponseEntity.ok(user);
+    }
+
 
 
 }

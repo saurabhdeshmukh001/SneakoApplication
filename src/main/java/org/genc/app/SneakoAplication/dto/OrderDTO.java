@@ -1,5 +1,6 @@
 package org.genc.app.SneakoAplication.dto;
 
+import jakarta.annotation.Nullable;
 import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,9 +11,12 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class OrderDTO {
+    @Nullable
     private Long orderId;
     private Long userId;
     private String shippingAddress;
+
+    @Nullable
     private BigDecimal totalPrice;
     private String orderStatus;
     private LocalDateTime orderDate;
